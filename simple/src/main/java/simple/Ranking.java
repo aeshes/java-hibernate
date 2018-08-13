@@ -1,9 +1,24 @@
 package simple;
 
+import javax.persistence.*;
+
+@Entity
 public class Ranking {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
     private Person subject;
+
+    @ManyToOne
     private Person observer;
+
+    @ManyToOne
     private Skill skill;
+
+    @Column
     private Integer ranking;
 
     public Person getSubject() {
